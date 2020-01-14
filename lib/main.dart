@@ -35,9 +35,14 @@ class _QuizPageState extends State<QuizPage> {
       Icons.check,
       color: Colors.green
     ),
-    
-
   ];
+
+  List<String> questions =[
+    'Is HTML a programming language?',
+    'A slug\'s blood is green',
+    'javascript is statically typed'
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return Column(
