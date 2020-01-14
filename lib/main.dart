@@ -42,7 +42,9 @@ class _QuizPageState extends State<QuizPage> {
     'A slug\'s blood is green',
     'javascript is statically typed'
   ];
-  
+
+  int questionNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -55,7 +57,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'Questions goes here!',
+                questions[questionNumber],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
@@ -69,7 +71,13 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: FlatButton(
-              onPressed: (){},
+              onPressed: (){
+                setState(() {
+                  questionNumber++;
+                  print(questionNumber);
+                 // scoreKeeper.add(Icon(Icons.check, color:Colors.green));
+                });
+              },
               color: Colors.green,
               child: Text(
                 'Yes',
@@ -88,9 +96,10 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(15.0),
             child: FlatButton(
               onPressed: (){
-                //setState(() {
-                 // scoreKeeper.add(Icon(Icons.check, color:Colors.green));
-                //});
+                setState(() {
+                  questionNumber++;
+                 // scoreKeeper.add(Icon(Icons.close, color:Colors.red));
+                });
               },
               color: Colors.redAccent,
               child: Text(
